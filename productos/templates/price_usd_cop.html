@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container" style="margin-top: 100px; display: flex; justify-content: center;">
+  <form style="width: 400px;" action="" method="POST">
+    {% csrf_token %}
+
+    <fieldset>
+      <div class="form-group">
+        <label for="exampleInputEmail1">
+          <strong>Precio Dolar (en Peso colombiano)</strong>
+        </label>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese el precio">
+        <small id="emailHelp" class="form-text text-muted">
+          <strong>
+            Ingrese el precio del Dolar en Peso colombiano
+          </strong>
+        </small>
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar precios</button>
+    </fieldset>
+  </form>
+</section>
+
+{% endblock %}
