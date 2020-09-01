@@ -5,11 +5,17 @@ from django.db import models
 class Product(models.Model):
   product_name = models.CharField(max_length=255)
   product_description = models.CharField(max_length=255)
-  product_price_bs = models.IntegerField(default=0)
-  product_price_cop = models.IntegerField(default=0)
-  product_price_usd = models.IntegerField(default=0)
+  product_price = models.IntegerField(default=0)
 
   def __str__(self):
 
     return self.product_name
 
+
+class Currency(models.Model):
+  currency_name = models.CharField(max_length=255)
+  currency_price = models.IntegerField(default=0)
+
+  def __str__(self):
+
+    return self.id, self.currency_name

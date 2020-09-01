@@ -2,25 +2,29 @@
 
 {% block content %}
 
-<section class="container" style="margin-top: 100px; display: flex; justify-content: center;">
-  <form style="width: 400px;" action="" method="POST">
-    {% csrf_token %}
-
-    <fieldset>
-      <div class="form-group">
-        <label for="exampleInputEmail1">
-          <strong>Precio Dolar (en Peso colombiano)</strong>
-        </label>
-        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese el precio">
-        <small id="emailHelp" class="form-text text-muted">
-          <strong>
-            Ingrese el precio del Dolar en Peso colombiano
-          </strong>
-        </small>
-      </div>
-      <button type="submit" class="btn btn-primary">Actualizar precios</button>
-    </fieldset>
-  </form>
+<section class="container" style="margin-top: 100px;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio USD</th>
+        <th scope="col">Precio COP</th>
+        <th scope="col">Precio Bs</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr class="table-light">
+        <th scope="row">{{ product.product_name }}</th>
+        <td>{{ product.product_description }}</td>
+        <td>{{ product.product_price_usd }}</td>
+        <td>{{ precios_cop }}</td>
+        <td>{{ precios_bs }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table> 
 </section>
 
 {% endblock %}
